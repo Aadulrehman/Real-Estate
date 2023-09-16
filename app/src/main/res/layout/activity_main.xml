@@ -7,24 +7,126 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/hello"
+        android:text="@string/signup"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="35dp"
+        android:textSize="35sp"
+        android:textColor="@color/brownOrange"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvSignup"
+        android:text="@string/name"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="45dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="280dp"
+        android:layout_height="49dp"
+        android:layout_below="@id/name"
         android:layout_centerInParent="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginLeft="5dp"
+        android:hint="@string/username"
+        android:inputType="text"
+        android:textColorHint="@color/black" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etName"
+        android:text="@string/email"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="45dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="280dp"
+        android:layout_height="49dp"
+        android:layout_below="@id/tvEmail"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="40dp"
+        android:hint="@string/EnterEmail"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/black" />
+
+    <TextView
+        android:id="@+id/tvphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etEmail"
+        android:text="@string/phone"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="45dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="280dp"
+        android:layout_height="49dp"
+        android:layout_below="@id/tvphone"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="40dp"
+        android:hint="@string/EnterPhone"
+        android:inputType="numberDecimal"
+        android:textColorHint="@color/black" />
+
+    <TextView
+        android:id="@+id/tvPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPhone"
+        android:text="@string/pass"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="45dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="280dp"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/Password"
+        android:layout_below="@id/tvPass"
+        android:layout_centerInParent="true"
+        android:layout_height="49dp"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="280dp"
+            android:id="@+id/etPass"
+            android:layout_height="49dp"
+            android:inputType="textPassword"
+            android:hint="@string/EnterPass"
+            android:background="@android:color/transparent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
+        android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn"
-        android:text="Move to next activity"
-        android:layout_below="@+id/hello"
+        android:layout_below="@id/Password"
         android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/brownOrange_2"
+        android:text="@string/SignupBtn"
+        android:textColor="@color/white" />
+
+
+
+
 
 </RelativeLayout>

@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">InternshipProject</string>
+    <string name="signup">SIGN UP</string>
+    <string name="name">Name</string>
+    <string name="pass">Password</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone No</string>
+    <string name="username">Enter name</string>
+    <string name="EnterEmail">Enter email</string>
+    <string name="EnterPass">Enter password</string>
+    <string name="EnterPhone">Enter phone no</string>
+    <string name="SignupBtn">Sign Up</string>
+    <string name="LogoutBtn">log Out</string>
+    <string name="nameTag">Name</string>
+    <string name="passTag">Password</string>
+    <string name="emailTag">Email</string>
+    <string name="phoneTag">Phone No</string>
+    <string name="checkName">Name is Empty</string>
+    <string name="checkPass">Password is Empty</string>
+    <string name="checkEmail">Email is Empty</string>
+    <string name="checkPhone">Phone no is Empty</string>
+    <string name="validName">Name is not Valid</string>
+    <string name="validPass">Password is not Valid</string>
+    <string name="validEmail">Email is not Valid</string>
+    <string name="validPhone">Phone no is not Valid</string>
+    <string name="checkLogin">isLogged</string>
+
 </resources>
