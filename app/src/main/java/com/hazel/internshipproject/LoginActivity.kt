@@ -3,6 +3,7 @@ package com.hazel.internshipproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.hazel.internshipproject.databinding.ActivityLoginBinding
 import com.hazel.internshipproject.databinding.ActivityMainBinding
 
@@ -10,6 +11,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var viewBinder: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Thread.sleep(3000)
+        installSplashScreen()
         viewBinder= ActivityLoginBinding.inflate(layoutInflater)
         setContentView(viewBinder.root)
         checkLogin()
