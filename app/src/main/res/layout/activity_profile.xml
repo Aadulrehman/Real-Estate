@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="25dp"
         android:id="@+id/l1">
         <TextView
             android:id="@+id/tvNameTitle"
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/l3"
         android:text="________________________"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="45dp"
         android:textSize="25sp"
@@ -102,7 +102,6 @@
         android:text="Calculate Age"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="45dp"
         android:textSize="25sp"
         android:textColor="@color/brownOrange"/>
 
@@ -139,4 +138,76 @@
         android:textSize="20sp"
         android:textColor="@color/black"/>
 
+    <TextView
+        android:id="@+id/tvBmiCalculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAge"
+        android:text="Calculate BMI"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
+        android:textColor="@color/brownOrange"/>
+
+    <TextView
+        android:id="@+id/tvWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvBmiCalculator"
+        android:text="@string/weight"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="45dp"
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/etWeight"
+        android:layout_width="280dp"
+        android:layout_height="49dp"
+        android:layout_below="@id/tvWeight"
+        android:layout_centerInParent="true"
+        android:hint="@string/EnterWeight"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tvHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etWeight"
+        android:text="@string/height"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="45dp"
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/etHeight"
+        android:layout_width="280dp"
+        android:layout_height="49dp"
+        android:layout_below="@id/tvHeight"
+        android:layout_centerInParent="true"
+        android:hint="@string/EnterHeight"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/btnCalculateBMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etHeight"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/brownOrange_2"
+        android:text="Calculate BMI"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tvBMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnCalculateBMI"
+        android:text="BMI: "
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
 </RelativeLayout>

@@ -25,6 +25,12 @@ class HomePage : AppCompatActivity() {
         viewBinder.btnLogout.setOnClickListener{
             logOut()
         }
+        viewBinder.layoutProfile.setOnClickListener{
+            startActivity(Intent(this@HomePage,ProfileActivity::class.java))
+        }
+        viewBinder.layoutList.setOnClickListener{
+
+        }
     }
 
     private fun getEmailFromSP(){

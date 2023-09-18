@@ -11,11 +11,11 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var viewBinder: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        checkLogin()
         Thread.sleep(3000)
         installSplashScreen()
         viewBinder= ActivityLoginBinding.inflate(layoutInflater)
         setContentView(viewBinder.root)
-        checkLogin()
 
         viewBinder.tvSignup.setOnClickListener{
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))

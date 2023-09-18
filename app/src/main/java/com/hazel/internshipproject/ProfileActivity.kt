@@ -4,9 +4,11 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
+import android.widget.Toast
 import com.hazel.internshipproject.databinding.ActivityLoginBinding
 import com.hazel.internshipproject.databinding.ActivityMainBinding
 import com.hazel.internshipproject.databinding.ActivityProfileBinding
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.Period
@@ -21,6 +23,9 @@ class ProfileActivity : AppCompatActivity() {
 
         viewBinder.etDOB.setOnClickListener{
             showDatePickerDialog()
+        }
+        viewBinder.btnCalculateBMI.setOnClickListener{
+            calculateBMI()
         }
     }
     private fun showDatePickerDialog() {
@@ -52,5 +57,19 @@ class ProfileActivity : AppCompatActivity() {
         val months = age.months
         val days = age.days
         viewBinder.tvAge.text="Your Age: ${years} years, ${months} month, ${days} days"
+    }
+    private fun calculateBMI()
+    {
+        val weight = viewBinder.etWeight.text.toString().toFloatOrNull()
+        val height = viewBinder.etHeight.text.toString().toFloatOrNull()
+        if (weight != null && height != null && height > 0) {
+            val bmi = weight / (height * height)
+            val df = DecimalFormat("#.##")
+            val formattedBMI = df.format(bmi)
+            viewBinder.tvBMI.text = "Your BMI is: $formattedBMI"
+
+        } else {
+            Toast.makeText(this,resources.getString(R.string.enterField), Toast.LENGTH_SHORT).show()
+        }
     }
 }

@@ -58,23 +58,22 @@
         android:textSize="18sp"
         android:textColor="@color/black"/>
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="280dp"
-        android:layout_marginLeft="40dp"
         android:id="@+id/Password"
         android:layout_below="@id/tvPass"
         android:layout_centerInParent="true"
         android:layout_height="49dp"
         app:passwordToggleEnabled="true">
-
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="280dp"
             android:id="@+id/etPass"
             android:layout_height="49dp"
             android:inputType="textPassword"
             android:background="@android:color/transparent" />
-    </com.google.android.material.textfield.TextInputLayout>
+</com.google.android.material.textfield.TextInputLayout>
+
+
 
     <Button
         android:id="@+id/btn"
@@ -113,7 +112,6 @@
             android:layout_marginLeft="5dp"
             android:textSize="18sp"
             android:textColor="@color/brownOrange_2"/>
-
     </LinearLayout>
 
 </RelativeLayout>
