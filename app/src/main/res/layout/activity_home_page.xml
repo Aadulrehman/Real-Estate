@@ -6,23 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".HomePage">
 
+
+
     <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:layout_marginLeft="35dp"
-        android:hint="@string/email"
+        android:layout_marginLeft="50dp"
+        android:hint="@string/name"
         android:textSize="20sp" />
     <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:layout_below="@id/tvName"
-        android:layout_marginLeft="35dp"
+        android:layout_marginLeft="50dp"
         android:hint="@string/email"
         android:textSize="20sp" />
     <TextView
@@ -30,9 +30,9 @@
         android:layout_below="@id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:layout_marginLeft="35dp"
+        android:hint="@string/phone"
+        android:layout_marginLeft="55dp"
         android:textSize="20sp" />
 
     <Button
@@ -42,7 +42,7 @@
         android:layout_below="@id/tvPhone"
         android:layout_centerInParent="true"
         android:layout_marginTop="90dp"
-        android:backgroundTint="@color/brownorange_2"
+        android:backgroundTint="@color/brownOrange_2"
         android:text="@string/LogoutBtn" />
 
 </RelativeLayout>

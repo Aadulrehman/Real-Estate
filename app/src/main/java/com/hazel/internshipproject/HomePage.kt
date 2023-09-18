@@ -1,6 +1,7 @@
 package com.hazel.internshipproject
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -29,6 +30,9 @@ class HomePage : AppCompatActivity() {
             spManager.saveLogin(resources.getString(R.string.checkLogin), false)
             startActivity(Intent(this@HomePage,MainActivity::class.java))
         }
+        viewBinder.tvPhone.setOnClickListener{
+            dialPhone()
+        }
     }
     private fun recvData(){
         val bundle = intent.extras
@@ -48,5 +52,12 @@ class HomePage : AppCompatActivity() {
         viewBinder.tvEmail.text=spManager.getString(resources.getString(R.string.emailTag), "")
         viewBinder.tvPhone.text=spManager.getString(resources.getString(R.string.phoneTag), "")
     }
-
+    private fun dialPhone()
+    {
+        val spManager = SharedPreferenceManager(this)
+        val phoneNumber =spManager.getString(resources.getString(R.string.phoneTag), "")
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:$phoneNumber")
+        startActivity(intent)
+    }
 }

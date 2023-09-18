@@ -6,14 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:id="@+id/tvSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signup"
-        android:layout_marginTop="80dp"
+        android:layout_below="@id/logo"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="35dp"
-        android:textSize="35sp"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/brownOrange"/>
 
     <TextView
@@ -22,9 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvSignup"
         android:text="@string/name"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="45dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/black"/>
 
     <EditText
@@ -35,8 +45,7 @@
         android:layout_centerInParent="true"
         android:layout_marginLeft="5dp"
         android:hint="@string/username"
-        android:inputType="text"
-        android:textColorHint="@color/black" />
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/tvEmail"
@@ -46,7 +55,7 @@
         android:text="@string/email"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="45dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/black"/>
 
     <EditText
@@ -57,8 +66,7 @@
         android:layout_centerInParent="true"
         android:layout_marginLeft="40dp"
         android:hint="@string/EnterEmail"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/black" />
+        android:inputType="textEmailAddress" />
 
     <TextView
         android:id="@+id/tvphone"
@@ -68,7 +76,7 @@
         android:text="@string/phone"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="45dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/black"/>
 
     <EditText
@@ -79,18 +87,40 @@
         android:layout_centerInParent="true"
         android:layout_marginLeft="40dp"
         android:hint="@string/EnterPhone"
-        android:inputType="numberDecimal"
-        android:textColorHint="@color/black" />
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tvDOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPhone"
+        android:text="@string/dob"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="45dp"
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/etDOB"
+        android:layout_width="280dp"
+        android:layout_height="49dp"
+        android:layout_below="@id/tvDOB"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="40dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="@string/enterDob"
+        android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/tvPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etPhone"
+        android:layout_below="@+id/etDOB"
         android:text="@string/pass"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="45dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/black"/>
 
 
@@ -108,11 +138,9 @@
             android:id="@+id/etPass"
             android:layout_height="49dp"
             android:inputType="textPassword"
-            android:hint="@string/EnterPass"
             android:background="@android:color/transparent" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <Button
         android:id="@+id/btn"
@@ -120,13 +148,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/Password"
         android:layout_centerInParent="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:backgroundTint="@color/brownOrange_2"
         android:text="@string/SignupBtn"
         android:textColor="@color/white" />
-
-
-
 
 
 </RelativeLayout>
