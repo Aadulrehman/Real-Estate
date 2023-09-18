@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">InternshipProject</string>
     <string name="signup">SIGN UP</string>
+    <string name="signIn">SIGN IN</string>
     <string name="name">Name</string>
     <string name="pass">Password</string>
     <string name="email">Email</string>
@@ -12,6 +13,7 @@
     <string name="EnterPhone">Enter phone no</string>
     <string name="enterDob">Select dob</string>
     <string name="SignupBtn">Sign Up</string>
+    <string name="SignInBtn">Sign In</string>
     <string name="LogoutBtn">log Out</string>
     <string name="nameTag">Name</string>
     <string name="passTag">Password</string>
@@ -28,5 +30,6 @@
     <string name="validPhone">Phone no is not Valid</string>
     <string name="validDOB">DOB is not Valid</string>
     <string name="checkLogin">isLogged</string>
+    <string name="accountLine">Already have an account?</string>
 
 </resources>

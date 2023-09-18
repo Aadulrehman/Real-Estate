@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/logo"
@@ -15,10 +15,10 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:id="@+id/tvSignup"
+        android:id="@+id/tvSigIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/signup"
+        android:text="@string/signIn"
         android:layout_below="@id/logo"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="35dp"
@@ -27,33 +27,12 @@
         android:textColor="@color/brownOrange"/>
 
     <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvSignup"
-        android:text="@string/name"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="45dp"
-        android:textSize="18sp"
-        android:textColor="@color/black"/>
-
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="280dp"
-        android:layout_height="49dp"
-        android:layout_below="@id/name"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="5dp"
-        android:hint="@string/username"
-        android:inputType="text" />
-
-    <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etName"
+        android:layout_below="@+id/tvSigIn"
         android:text="@string/email"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="45dp"
         android:textSize="18sp"
         android:textColor="@color/black"/>
@@ -69,31 +48,10 @@
         android:inputType="textEmailAddress" />
 
     <TextView
-        android:id="@+id/tvPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etEmail"
-        android:text="@string/phone"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="45dp"
-        android:textSize="18sp"
-        android:textColor="@color/black"/>
-    <EditText
-        android:id="@+id/etPhone"
-        android:layout_width="280dp"
-        android:layout_height="49dp"
-        android:layout_below="@id/tvPhone"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="40dp"
-        android:hint="@string/EnterPhone"
-        android:inputType="numberDecimal" />
-
-
-    <TextView
         android:id="@+id/tvPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etPhone"
+        android:layout_below="@+id/etEmail"
         android:text="@string/pass"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="45dp"
@@ -116,7 +74,6 @@
             android:layout_height="49dp"
             android:inputType="textPassword"
             android:background="@android:color/transparent" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -127,9 +84,8 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="25dp"
         android:backgroundTint="@color/brownOrange_2"
-        android:text="@string/SignupBtn"
+        android:text="@string/SignInBtn"
         android:textColor="@color/white" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -148,16 +104,16 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/tvSignIn"
+            android:id="@+id/tvSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn"
-            android:text="@string/SignInBtn"
+            android:text="@string/SignupBtn"
             android:layout_marginTop="45dp"
             android:layout_marginLeft="5dp"
             android:textSize="18sp"
             android:textColor="@color/brownOrange_2"/>
-    </LinearLayout>
 
+    </LinearLayout>
 
 </RelativeLayout>

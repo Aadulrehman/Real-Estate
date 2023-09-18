@@ -6,40 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".HomePage">
 
-
-
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginLeft="50dp"
-        android:hint="@string/name"
-        android:textSize="20sp" />
     <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_below="@id/tvName"
-        android:layout_marginLeft="50dp"
-        android:hint="@string/email"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/tvPhone"
-        android:layout_below="@id/tvEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:hint="@string/phone"
-        android:layout_marginLeft="55dp"
-        android:textSize="20sp" />
-
+        android:text="@string/email"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="45dp"
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvPhone"
         android:layout_centerInParent="true"
         android:layout_marginTop="90dp"
         android:backgroundTint="@color/brownOrange_2"

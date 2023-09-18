@@ -12,45 +12,24 @@ import com.hazel.internshipproject.databinding.ActivityMainBinding
 
 class HomePage : AppCompatActivity() {
     private lateinit var viewBinder:ActivityHomePageBinding
+    private lateinit var email:String
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         viewBinder=ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(viewBinder.root)
 
-        if(checkLogin()) {
-            getData()   //Recieve data from shared Preference
-        }
-        else{
-            recvData() //Recieve data from intent
-        }
+        getEmailFromSP()   //Recieve data from shared Preference
+        fetchDataFromRD()
 
         viewBinder.btnLogout.setOnClickListener{
-            val spManager = SharedPreferenceManager(this)
-            spManager.saveLogin(resources.getString(R.string.checkLogin), false)
-            startActivity(Intent(this@HomePage,MainActivity::class.java))
-        }
-        viewBinder.tvPhone.setOnClickListener{
-            dialPhone()
+            logOut()
         }
     }
-    private fun recvData(){
-        val bundle = intent.extras
-        if (bundle != null) {
-            viewBinder.tvName.text=bundle.getString(resources.getString(R.string.nameTag))
-            viewBinder.tvEmail.text=bundle.getString(resources.getString(R.string.emailTag))
-            viewBinder.tvPhone.text=bundle.getString(resources.getString(R.string.phoneTag))
-        }
-    }
-    private fun checkLogin():Boolean{
+
+    private fun getEmailFromSP(){
         val spManager = SharedPreferenceManager(this)
-        return spManager.getLogin(resources.getString(R.string.checkLogin), false)
-    }
-    private fun getData(){
-        val spManager = SharedPreferenceManager(this)
-        viewBinder.tvName.text=spManager.getString(resources.getString(R.string.nameTag), "")
-        viewBinder.tvEmail.text=spManager.getString(resources.getString(R.string.emailTag), "")
-        viewBinder.tvPhone.text=spManager.getString(resources.getString(R.string.phoneTag), "")
+        email=spManager.getString(resources.getString(R.string.emailTag), "")
     }
     private fun dialPhone()
     {
@@ -59,5 +38,13 @@ class HomePage : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_DIAL)
         intent.data = Uri.parse("tel:$phoneNumber")
         startActivity(intent)
+    }
+    private fun fetchDataFromRD(){
+
+    }
+    private fun logOut(){
+        val spManager = SharedPreferenceManager(this)
+        spManager.saveLogin(resources.getString(R.string.checkLogin), false)
+        startActivity(Intent(this@HomePage,LoginActivity::class.java))
     }
 }
