@@ -12,6 +12,9 @@
         android:theme="@style/Theme.InternshipProject"
         tools:targetApi="31">
         <activity
+            android:name=".UserListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
@@ -22,8 +25,8 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.App.SplashScreen"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.App.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

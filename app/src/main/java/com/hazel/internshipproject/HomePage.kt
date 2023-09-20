@@ -25,7 +25,7 @@ class HomePage : AppCompatActivity() {
             startActivity(Intent(this@HomePage,ProfileActivity::class.java))
         }
         viewBinder.layoutList.setOnClickListener{
-
+            startActivity(Intent(this@HomePage,UserListActivity::class.java))
         }
     }
 
