@@ -1,21 +1,20 @@
 package com.hazel.internshipproject
 
-import android.app.DatePickerDialog
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Toast
+import androidx.room.Room
 import com.hazel.internshipproject.databinding.ActivityMainBinding
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.Period
+import kotlinx.coroutines.*
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     private lateinit var viewBinder:ActivityMainBinding
+    lateinit var db:AppDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         }
         viewBinder.tvSignIn.setOnClickListener{
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+            finish()
         }
     }
     private fun checkInputData(){
@@ -40,10 +40,8 @@ class MainActivity : AppCompatActivity() {
                 Validation.validatePhone(this,viewBinder.etPhone.text.toString().trim(),resources.getString(R.string.validPhone)) &&
                 Validation.validPassword(this,viewBinder.etPass.text.toString().trim(),resources.getString(R.string.validPass)))
             {  //Valid Data
-                //checkUserExistance()
                 updateSharePreference()
                 updateDatabase()
-                startActivity(Intent(this@MainActivity, HomePage::class.java))
             }
         }
     }
@@ -53,6 +51,33 @@ class MainActivity : AppCompatActivity() {
         spManager.saveString(resources.getString(R.string.emailTag), viewBinder.etEmail.text.toString())
     }
     private fun updateDatabase(){
-        //update database here with email pass name and phone
+        db=AppDatabase.getInstance(this)
+        GlobalScope.launch {
+            val existsEmail= db.userDao().findByEmail(viewBinder.etEmail.text.toString().trim())
+            val existsPhone = db.userDao().findByPhone(viewBinder.etPhone.text.toString().trim())
+            CoroutineScope(Dispatchers.Main).launch {
+                if(existsEmail!=null){
+                    viewBinder.etEmail.error = "Email already exists"
+                    viewBinder.etPhone.error=null
+                }
+                else if(existsPhone!=null){
+                    viewBinder.etEmail.error=null
+                    viewBinder.etPhone.error = "Phone no already exists"
+                }
+                else{//user is new
+                    viewBinder.etEmail.error=null
+                    viewBinder.etPhone.error=null
+                    val user = User(
+                        0,
+                        viewBinder.etEmail.text.toString().trim(),
+                        viewBinder.etPhone.text.toString().trim(),
+                        viewBinder.etName.text.toString().trim(),
+                        viewBinder.etPass.text.toString().trim())
+                    db.userDao().insert(user)
+                    startActivity(Intent(this@MainActivity, HomePage::class.java))
+                    finish()
+                }
+            }
+        }
     }
 }

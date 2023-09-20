@@ -1,6 +1,7 @@
 package com.hazel.internshipproject
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
@@ -8,6 +9,10 @@ import android.widget.Toast
 import com.hazel.internshipproject.databinding.ActivityLoginBinding
 import com.hazel.internshipproject.databinding.ActivityMainBinding
 import com.hazel.internshipproject.databinding.ActivityProfileBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -16,10 +21,14 @@ import java.util.*
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var viewBinder: ActivityProfileBinding
+    private lateinit var email:String
+    lateinit var db:AppDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinder= ActivityProfileBinding.inflate(layoutInflater)
         setContentView(viewBinder.root)
+        getEmailFromSP()
+        fetchDataFromRD()
 
         viewBinder.etDOB.setOnClickListener{
             showDatePickerDialog()
@@ -71,5 +80,21 @@ class ProfileActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this,resources.getString(R.string.enterField), Toast.LENGTH_SHORT).show()
         }
+    }
+    private fun fetchDataFromRD(){
+        db=AppDatabase.getInstance(this)
+        GlobalScope.launch {
+            val name= db.userDao().findNameThroughEmail(email)
+            val phone= db.userDao().findPhoneThroughEmail(email)
+            CoroutineScope(Dispatchers.Main).launch {
+               viewBinder.tvName.text=name
+                viewBinder.tvEmail.text=email
+                viewBinder.tvPhone.text=phone
+            }
+        }
+    }
+    private fun getEmailFromSP(){
+        val spManager = SharedPreferenceManager(this)
+        email=spManager.getString(resources.getString(R.string.emailTag), "")
     }
 }

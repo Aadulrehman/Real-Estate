@@ -12,15 +12,11 @@ import com.hazel.internshipproject.databinding.ActivityMainBinding
 
 class HomePage : AppCompatActivity() {
     private lateinit var viewBinder:ActivityHomePageBinding
-    private lateinit var email:String
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         viewBinder=ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(viewBinder.root)
-
-        getEmailFromSP()   //Recieve data from shared Preference
-        fetchDataFromRD()
 
         viewBinder.btnLogout.setOnClickListener{
             logOut()
@@ -33,10 +29,6 @@ class HomePage : AppCompatActivity() {
         }
     }
 
-    private fun getEmailFromSP(){
-        val spManager = SharedPreferenceManager(this)
-        email=spManager.getString(resources.getString(R.string.emailTag), "")
-    }
     private fun dialPhone()
     {
         val spManager = SharedPreferenceManager(this)
@@ -45,12 +37,11 @@ class HomePage : AppCompatActivity() {
         intent.data = Uri.parse("tel:$phoneNumber")
         startActivity(intent)
     }
-    private fun fetchDataFromRD(){
 
-    }
     private fun logOut(){
         val spManager = SharedPreferenceManager(this)
         spManager.saveLogin(resources.getString(R.string.checkLogin), false)
         startActivity(Intent(this@HomePage,LoginActivity::class.java))
+        finish()
     }
 }
