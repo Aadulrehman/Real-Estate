@@ -8,6 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 
 class AdapterClass(private val dataList: ArrayList<UserData>):RecyclerView.Adapter<AdapterClass.ViewHolderClass>() {
 
+    private var listener: OnItemClickListener? = null
+    interface OnItemClickListener {
+        fun onItemClick(user: UserData)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderClass {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.userlayout, parent, false)
         return ViewHolderClass(itemView)
@@ -21,9 +29,15 @@ class AdapterClass(private val dataList: ArrayList<UserData>):RecyclerView.Adapt
         val currentItem=dataList[position]
         holder.rvName.text=currentItem.name
         holder.rvEmail.text=currentItem.email
+
+        holder.itemView.setOnClickListener {
+            listener?.onItemClick(currentItem)
+        }
+
     }
     class ViewHolderClass(itemView: View):RecyclerView.ViewHolder(itemView) {
         val rvName:TextView=itemView.findViewById(R.id.name)
         val rvEmail:TextView=itemView.findViewById(R.id.email)
+
     }
 }

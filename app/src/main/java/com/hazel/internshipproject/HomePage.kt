@@ -28,16 +28,6 @@ class HomePage : AppCompatActivity() {
             startActivity(Intent(this@HomePage,UserListActivity::class.java))
         }
     }
-
-    private fun dialPhone()
-    {
-        val spManager = SharedPreferenceManager(this)
-        val phoneNumber =spManager.getString(resources.getString(R.string.phoneTag), "")
-        val intent = Intent(Intent.ACTION_DIAL)
-        intent.data = Uri.parse("tel:$phoneNumber")
-        startActivity(intent)
-    }
-
     private fun logOut(){
         val spManager = SharedPreferenceManager(this)
         spManager.saveLogin(resources.getString(R.string.checkLogin), false)

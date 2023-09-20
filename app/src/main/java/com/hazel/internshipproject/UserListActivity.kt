@@ -1,8 +1,11 @@
 package com.hazel.internshipproject
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
@@ -26,6 +29,16 @@ class UserListActivity : AppCompatActivity() {
         dataList= arrayListOf<UserData>()
         getData()
 
+        val adapter = AdapterClass(dataList)
+        recyclerView.adapter = adapter
+
+        adapter.setOnItemClickListener(object : AdapterClass.OnItemClickListener {
+            override fun onItemClick(user: UserData) {
+                val currentEmail = user.email
+                getNumberFromDB(currentEmail)
+            }
+        })
+
 
     }
     private fun getData()
@@ -41,5 +54,20 @@ class UserListActivity : AppCompatActivity() {
             }
         }
         recyclerView.adapter=AdapterClass(dataList)
+    }
+    private fun getNumberFromDB(currEmail:String){
+        db=AppDatabase.getInstance(this)
+        GlobalScope.launch {
+            val phone= db.userDao().findPhoneThroughEmail(currEmail)
+            CoroutineScope(Dispatchers.Main).launch {
+                dialPhone(phone.toString())
+            }
+        }
+    }
+    private fun dialPhone(phoneNumber:String)
+    {
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:$phoneNumber")
+        startActivity(intent)
     }
 }
