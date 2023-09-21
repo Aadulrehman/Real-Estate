@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(viewBinder.root)
 
         viewBinder.tvSignup.setOnClickListener{
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            startActivity(Intent(this@LoginActivity, AddPropertyActivity::class.java))
             finish()
         }
         viewBinder.btn.setOnClickListener{

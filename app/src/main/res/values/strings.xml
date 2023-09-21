@@ -39,5 +39,14 @@
     <string name="enterField">Some fields are Empty</string>
     <string name="accountLine">Already have an account?</string>
     <string name="userExists">User Already Exists</string>
+    <string name="addProperty">Add Property</string>
+    <string name="selectArea">Select Area</string>
+    <string-array name="areaSpinner">
+        <item>3 Mar</item>
+        <item>5 Mar</item>
+        <item>7 Mar</item>
+        <item>10 Mar</item>
+        <item>1 Kanal</item>
+    </string-array>
 
 </resources>

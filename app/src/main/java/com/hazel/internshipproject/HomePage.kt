@@ -27,6 +27,9 @@ class HomePage : AppCompatActivity() {
         viewBinder.layoutList.setOnClickListener{
             startActivity(Intent(this@HomePage,UserListActivity::class.java))
         }
+        viewBinder.propertyLayout.setOnClickListener{
+
+        }
     }
     private fun logOut(){
         val spManager = SharedPreferenceManager(this)

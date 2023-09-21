@@ -28,6 +28,9 @@ interface UserDao {
     @Query("SELECT phone FROM users WHERE email = :email")
     suspend fun findPhoneThroughEmail(email: String): String?
 
+    @Query("UPDATE users SET name = :newName WHERE email = :email")
+    suspend fun updateUserNameByEmail(email: String, newName: String)
+
 
 
 }

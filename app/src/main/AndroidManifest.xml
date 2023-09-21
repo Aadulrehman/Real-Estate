@@ -12,6 +12,9 @@
         android:theme="@style/Theme.InternshipProject"
         tools:targetApi="31">
         <activity
+            android:name=".AddPropertyActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserListActivity"
             android:exported="false" />
         <activity
