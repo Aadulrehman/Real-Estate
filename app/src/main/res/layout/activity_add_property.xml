@@ -16,7 +16,6 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/brownOrange"/>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,6 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Enter no of floor"
+                    android:inputType="numberDecimal"
                     android:textSize="18sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
@@ -95,6 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Enter no of kitchens"
+                    android:inputType="numberDecimal"
                     android:textSize="18sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
@@ -124,6 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Enter no of rooms"
+                    android:inputType="numberDecimal"
                     android:textSize="18sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
@@ -145,6 +147,7 @@
                     android:id="@+id/etBaths"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
                     android:hint="Enter no of baths"
                     android:textSize="18sp"
                     android:textColor="@color/black"/>
@@ -152,18 +155,16 @@
         </LinearLayout>
     </LinearLayout>
 
-
-
     <TextView
         android:id="@+id/tvPurpose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/layoutInterior"
         android:text="Purpose"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:textSize="20sp"
-        android:textColor="@color/brownOrange_2"/>
+        android:textColor="@color/black"/>
 
     <RadioGroup
         android:id="@+id/PurposeGroup"
@@ -196,10 +197,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/PurposeGroup"
         android:text="Interior"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:textSize="20sp"
-        android:textColor="@color/brownOrange_2"/>
+        android:textColor="@color/black"/>
 
     <RadioGroup
         android:id="@+id/InteriorGroup"
@@ -226,5 +227,43 @@
             android:text="Non Furnished"/>
     </RadioGroup>
 
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/InteriorGroup"
+        android:text="Address"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAddress"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/layoutAddress">
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter street address"
+            android:inputType="text"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter city"
+            android:inputType="text"
+            android:layout_marginLeft="15dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
 
 </RelativeLayout>
