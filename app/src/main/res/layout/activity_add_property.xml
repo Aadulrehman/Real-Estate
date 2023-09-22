@@ -68,7 +68,7 @@
                     android:textColor="@color/brownOrange_2"/>
 
                 <EditText
-                    android:id="@+id/tvName"
+                    android:id="@+id/etFloor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Enter no of floor"
@@ -265,5 +265,16 @@
             android:textSize="20sp"
             android:textColor="@color/black"/>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutAddress"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/brownOrange_2"
+        android:text="Add"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

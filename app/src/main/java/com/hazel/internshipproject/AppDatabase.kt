@@ -5,9 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class, Property::class, PropertyAddress::class], version = 5)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun propertyDao(): PropertyDao
+    abstract fun propertyAddressDao():PropertyAddressDao
 
     companion object {
         @Volatile
@@ -20,7 +22,7 @@ abstract class AppDatabase: RoomDatabase() {
                         context.applicationContext,
                         AppDatabase::class.java,
                         "my-database"
-                    ).build()
+                    ).fallbackToDestructiveMigration().build()
             return instance!!
         }
     }
