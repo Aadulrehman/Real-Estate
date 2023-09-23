@@ -25,10 +25,13 @@ class HomePage : AppCompatActivity() {
             startActivity(Intent(this@HomePage,ProfileActivity::class.java))
         }
         viewBinder.layoutList.setOnClickListener{
-            startActivity(Intent(this@HomePage,EditPropertyActivity::class.java))
+            startActivity(Intent(this@HomePage,UserListActivity::class.java))
         }
         viewBinder.propertyLayout.setOnClickListener{
             startActivity(Intent(this@HomePage,AddPropertyActivity::class.java))
+        }
+        viewBinder.EditDeleteLayout.setOnClickListener{
+            startActivity(Intent(this@HomePage,EditPropertyActivity::class.java))
         }
     }
     private fun logOut(){

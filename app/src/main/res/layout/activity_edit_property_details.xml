@@ -1,9 +1,281 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditPropertyDetailsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvEditPropertyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Property Details"
+        android:layout_marginTop="20dp"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/brownOrange"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tvEditPropertyTitle"
+        android:id="@+id/propertyLayout">
+        <TextView
+            android:id="@+id/tvNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Area"
+            android:layout_marginLeft="30dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <Spinner
+            android:id="@+id/spn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            ></Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/propertyLayout"
+        android:id="@+id/layoutInterior"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layout1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvFloor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Floor:"
+                    android:textSize="20sp"
+                    android:textColor="@color/brownOrange_2"/>
+
+                <EditText
+                    android:id="@+id/etFloor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter no of floor"
+                    android:inputType="numberDecimal"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/propertyLayout">
+                <TextView
+                    android:id="@+id/tvKitchen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kitchen:"
+                    android:textSize="20sp"
+                    android:textColor="@color/brownOrange_2"/>
+
+                <EditText
+                    android:id="@+id/etKitchen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter no of kitchens"
+                    android:inputType="numberDecimal"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layout2">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvRooms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Room:"
+                    android:textSize="20sp"
+                    android:textColor="@color/brownOrange_2"/>
+
+                <EditText
+                    android:id="@+id/etRooms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter no of rooms"
+                    android:inputType="numberDecimal"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/propertyLayout">
+                <TextView
+                    android:id="@+id/tvBath"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bath Rooms:"
+                    android:textSize="20sp"
+                    android:textColor="@color/brownOrange_2"/>
+
+                <EditText
+                    android:id="@+id/etBaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:hint="Enter no of baths"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPurpose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutInterior"
+        android:text="Purpose"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <RadioGroup
+        android:id="@+id/PurposeGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvPurpose"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbForSale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="For Sale" />
+
+        <RadioButton
+            android:id="@+id/rbForRent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginLeft="25dp"
+            android:text="For Rent"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvInterior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/PurposeGroup"
+        android:text="Interior"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <RadioGroup
+        android:id="@+id/InteriorGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvInterior"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbFurnished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Furnished" />
+
+        <RadioButton
+            android:id="@+id/rbNonFurnished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginLeft="18dp"
+            android:text="Non Furnished"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/InteriorGroup"
+        android:text="Address"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAddress"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/layoutAddress">
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter street address"
+            android:inputType="text"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter city"
+            android:inputType="text"
+            android:layout_marginLeft="15dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutAddress"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/brownOrange_2"
+        android:text="Update"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

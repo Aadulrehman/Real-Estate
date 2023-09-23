@@ -19,11 +19,13 @@ class EditPropertyActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var dataList:MutableList<PropertyDetailsData>
     lateinit var db:AppDatabase
+    private lateinit var email:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         viewBinder= ActivityEditPropertyBinding.inflate(layoutInflater)
         setContentView(viewBinder.root)
+        getEmailFromSP()
 
         recyclerView=viewBinder.recyclerview
         recyclerView.layoutManager= LinearLayoutManager(this)
@@ -39,17 +41,28 @@ class EditPropertyActivity : AppCompatActivity() {
         adapter.setOnEditClickListener(object : PropertyEditAdapter.EditButtonClickListener
         {
             override fun onEditButtonClick(item: PropertyDetailsData) {
-                val id = item.id
-
-                Toast.makeText(this@EditPropertyActivity,id.toString(),Toast.LENGTH_SHORT).show()
+                val bundle = Bundle()
+                bundle.putLong("id", item.id)
+                bundle.putString("city", item.city)
+                bundle.putString("address", item.address)
+                bundle.putString("area", item.area)
+                bundle.putString("room", item.rooms)
+                bundle.putString("floor", item.floor)
+                bundle.putString("kitchen", item.kitchen)
+                bundle.putString("bath", item.bath)
+                bundle.putString("interior", item.interior)
+                bundle.putString("purpose", item.purpose)
+                val intent = Intent(this@EditPropertyActivity, EditPropertyDetailsActivity::class.java)
+                intent.putExtras(bundle)
+                startActivity(intent)
+                finish()
             }
 
         })
         adapter.setOnDeleteClickListener(object: PropertyEditAdapter.DeleteButtonClickListener
         {
             override fun onDeleteButtonClick(item: PropertyDetailsData) {
-                val id = item.id
-                deletePropertyData(id)
+                deletePropertyData(item.id)
             }
         })
 
@@ -62,18 +75,20 @@ class EditPropertyActivity : AppCompatActivity() {
             val myAddressList=db.propertyAddressDao().getAll()
             CoroutineScope(Dispatchers.Main).launch {
                 for(i in myPropertyList.indices){
-                    val propertyDetailsData=PropertyDetailsData(
-                        myAddressList[i].idProperty,
-                        myAddressList[i].city,
-                        myAddressList[i].address,
-                        myPropertyList[i].room,
-                        myPropertyList[i].bath,
-                        myPropertyList[i].kitchen,
-                        myPropertyList[i].floor,
-                        myPropertyList[i].area,
-                        myPropertyList[i].interior,
-                        myPropertyList[i].purpose)
-                    dataList.add(propertyDetailsData)
+                    if(myPropertyList[i].email==email){
+                        val propertyDetailsData=PropertyDetailsData(
+                            myAddressList[i].idProperty,
+                            myAddressList[i].city,
+                            myAddressList[i].address,
+                            myPropertyList[i].room,
+                            myPropertyList[i].bath,
+                            myPropertyList[i].kitchen,
+                            myPropertyList[i].floor,
+                            myPropertyList[i].area,
+                            myPropertyList[i].interior,
+                            myPropertyList[i].purpose)
+                        dataList.add(propertyDetailsData)
+                    }
                 }
             }
         }
@@ -86,6 +101,10 @@ class EditPropertyActivity : AppCompatActivity() {
             db.propertyDao().deleteById(id)
             db.propertyAddressDao().deleteById(id)
         }
+    }
+    private fun getEmailFromSP(){
+        val spManager = SharedPreferenceManager(this)
+        email=spManager.getString(resources.getString(R.string.emailTag), "")
     }
 
 }

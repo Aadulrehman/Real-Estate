@@ -16,4 +16,10 @@ interface PropertyAddressDao {
     @Query("DELETE FROM propertyAddress WHERE idProperty = :idProperty")
     fun deleteById(idProperty: Long)
 
+    @Query("UPDATE propertyAddress SET city = :newCity WHERE idProperty = :idProperty")
+    suspend fun updateCity(idProperty: Long, newCity: String)
+
+    @Query("UPDATE propertyAddress SET address = :newAddress WHERE idProperty = :idProperty")
+    suspend fun updateAddress(idProperty: Long, newAddress: String)
+
 }

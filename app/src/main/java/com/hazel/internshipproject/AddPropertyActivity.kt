@@ -50,6 +50,7 @@ class AddPropertyActivity : AppCompatActivity() {
             Validation.checkBlank(this,viewBinder.etKitchen.text.toString().trim(),"Kitchen Field is Empty") &&
             Validation.checkBlank(this,viewBinder.etFloor.text.toString().trim(),"Floor Field is Empty")) {
             insertProperty()
+            Toast.makeText(this@AddPropertyActivity,"Property Added Successfully!",Toast.LENGTH_SHORT).show()
         }
     }
 
