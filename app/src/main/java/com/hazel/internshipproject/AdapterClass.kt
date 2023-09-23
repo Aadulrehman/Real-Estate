@@ -33,11 +33,9 @@ class AdapterClass(private val dataList: ArrayList<UserData>):RecyclerView.Adapt
         holder.itemView.setOnClickListener {
             listener?.onItemClick(currentItem)
         }
-
     }
     class ViewHolderClass(itemView: View):RecyclerView.ViewHolder(itemView) {
         val rvName:TextView=itemView.findViewById(R.id.name)
         val rvEmail:TextView=itemView.findViewById(R.id.email)
-
     }
 }

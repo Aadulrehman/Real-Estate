@@ -7,7 +7,8 @@ import androidx.room.PrimaryKey
 
 @Entity("property")
 data class Property(
-    @PrimaryKey(autoGenerate = true) val idProperty:Long=0,
+    @PrimaryKey(autoGenerate = true)
+    val idProperty:Long=0,
     val area: String,
     val floor: String,
     val room: String,

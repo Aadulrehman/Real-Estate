@@ -13,4 +13,7 @@ interface PropertyAddressDao {
     @Query("SELECT * FROM propertyAddress")
     fun getAll(): List<PropertyAddress>
 
+    @Query("DELETE FROM propertyAddress WHERE idProperty = :idProperty")
+    fun deleteById(idProperty: Long)
+
 }

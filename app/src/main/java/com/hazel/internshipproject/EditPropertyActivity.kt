@@ -1,8 +1,10 @@
 package com.hazel.internshipproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SimpleAdapter.ViewBinder
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hazel.internshipproject.databinding.ActivityEditPropertyBinding
@@ -23,7 +25,7 @@ class EditPropertyActivity : AppCompatActivity() {
         viewBinder= ActivityEditPropertyBinding.inflate(layoutInflater)
         setContentView(viewBinder.root)
 
-        recyclerView=findViewById(R.id.recyclerview)
+        recyclerView=viewBinder.recyclerview
         recyclerView.layoutManager= LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
 
@@ -33,17 +35,35 @@ class EditPropertyActivity : AppCompatActivity() {
         val adapter = PropertyEditAdapter(dataList)
         recyclerView.adapter = adapter
 
+
+        adapter.setOnEditClickListener(object : PropertyEditAdapter.EditButtonClickListener
+        {
+            override fun onEditButtonClick(item: PropertyDetailsData) {
+                val id = item.id
+
+                Toast.makeText(this@EditPropertyActivity,id.toString(),Toast.LENGTH_SHORT).show()
+            }
+
+        })
+        adapter.setOnDeleteClickListener(object: PropertyEditAdapter.DeleteButtonClickListener
+        {
+            override fun onDeleteButtonClick(item: PropertyDetailsData) {
+                val id = item.id
+                deletePropertyData(id)
+            }
+        })
+
     }
     private fun getData()
     {
         db=AppDatabase.getInstance(this)
-        GlobalScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val myPropertyList= db.propertyDao().getAll()
             val myAddressList=db.propertyAddressDao().getAll()
             CoroutineScope(Dispatchers.Main).launch {
                 for(i in myPropertyList.indices){
-
                     val propertyDetailsData=PropertyDetailsData(
+                        myAddressList[i].idProperty,
                         myAddressList[i].city,
                         myAddressList[i].address,
                         myPropertyList[i].room,
@@ -59,4 +79,13 @@ class EditPropertyActivity : AppCompatActivity() {
         }
         recyclerView.adapter=PropertyEditAdapter(dataList)
     }
+    private fun deletePropertyData(id:Long)
+    {
+        db=AppDatabase.getInstance(this)
+        CoroutineScope(Dispatchers.IO).launch {
+            db.propertyDao().deleteById(id)
+            db.propertyAddressDao().deleteById(id)
+        }
+    }
+
 }

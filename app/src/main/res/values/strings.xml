@@ -41,15 +41,15 @@
     <string name="userExists">User Already Exists</string>
     <string name="addProperty">Add Property</string>
     <string name="selectArea">Select Area</string>
-    <string name="FurnishTag">Furnish</string>
-    <string name="NonFurnishTag">NonFurnish</string>
+    <string name="FurnishTag">Furnished</string>
+    <string name="NonFurnishTag">Non Furnished</string>
     <string name="SaleTag">Sale</string>
     <string name="RentTag">Rent</string>
     <string-array name="areaSpinner">
-        <item>3 Mar</item>
-        <item>5 Mar</item>
-        <item>7 Mar</item>
-        <item>10 Mar</item>
+        <item>3 Marla</item>
+        <item>5 Marla</item>
+        <item>7 Marla</item>
+        <item>10 Marla</item>
         <item>1 Kanal</item>
     </string-array>
 
