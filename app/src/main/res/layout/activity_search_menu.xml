@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradienteffect"
+    tools:context=".SearchMenuActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SaleTag"
+            android:id="@+id/btnSale"
+            android:textColor="#95420B"
+            android:backgroundTint="@color/lightGrey"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRent"
+            android:text="@string/RentTag"
+            android:layout_marginLeft="5dp"
+            android:textColor="#95420B"
+            android:backgroundTint="@color/lightWhite"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Area"
+        android:layout_marginLeft="14dp"
+        android:textSize="27dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="12dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3\nMarla"
+            android:id="@+id/btn3Marla"
+            android:layout_marginLeft="5dp"
+            android:textColor="#95420B"
+            android:backgroundTint="@color/lightGrey"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn5Marla"
+            android:text="5\nMarla"
+            android:layout_marginLeft="5dp"
+            android:textColor="#95420B"
+            android:backgroundTint="@color/lightGrey" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn7Marla"
+            android:text="7\nMarla"
+            android:layout_marginLeft="5dp"
+            android:textColor="#95420B"
+            android:backgroundTint="@color/lightGrey" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn10Marla"
+            android:text="10\nMarla"
+            android:layout_marginLeft="5dp"
+            android:textColor="#95420B"
+            android:backgroundTint="@color/lightGrey" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn1Kanal"
+            android:text="1\nKanal"
+            android:layout_marginLeft="5dp"
+            android:textColor="#95420B"
+            android:backgroundTint="@color/lightGrey" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:layout_marginLeft="14dp"
+        android:textSize="27dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="12dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/layoutAddress">
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter street address..."
+            android:inputType="text"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter city..."
+            android:inputType="text"
+            android:layout_marginLeft="15dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Interior"
+        android:layout_marginLeft="14dp"
+        android:textSize="27dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="12dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/FurnishTag"
+            android:id="@+id/btnFurnished"
+            android:textColor="#95420B"
+            android:backgroundTint="@color/lightGrey"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnnonFurnished"
+            android:text="@string/NonFurnishTag"
+            android:layout_marginLeft="5dp"
+            android:textColor="#95420B"
+            android:backgroundTint="@color/lightGrey" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/rooms"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etRooms"
+            android:hint="Rooms"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:inputType="numberDecimal"
+            android:layout_marginStart="1dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/kitchen"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etKitchen"
+            android:hint="Kitchen"
+            android:textSize="16sp"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:layout_marginStart="1dp" />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bath"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etBath"
+            android:hint="Bath"
+            android:textSize="16sp"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:layout_marginStart="1dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/stair"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etFloor"
+            android:hint="Floor"
+            android:inputType="numberDecimal"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="1dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="35dp"
+        android:backgroundTint="@color/white"
+        android:text="Search"
+        android:textStyle="bold"
+        android:textColor="@color/brownOrange" />
+
+
+</LinearLayout>

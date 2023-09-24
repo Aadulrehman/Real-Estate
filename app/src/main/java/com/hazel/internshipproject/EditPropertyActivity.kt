@@ -73,7 +73,6 @@ class EditPropertyActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             val myPropertyList= db.propertyDao().getAll()
             val myAddressList=db.propertyAddressDao().getAll()
-            CoroutineScope(Dispatchers.Main).launch {
                 for(i in myPropertyList.indices){
                     if(myPropertyList[i].email==email){
                         val propertyDetailsData=PropertyDetailsData(
@@ -90,9 +89,8 @@ class EditPropertyActivity : AppCompatActivity() {
                         dataList.add(propertyDetailsData)
                     }
                 }
-            }
         }
-        recyclerView.adapter=PropertyEditAdapter(dataList)
+        //recyclerView.adapter=PropertyEditAdapter(dataList)
     }
     private fun deletePropertyData(id:Long)
     {

@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SearchPropertyActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@id/searchLayout">
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_marginLeft="8dp"
+            android:id="@+id/searchMenu"
+            android:layout_height="45dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/baseline_manage_search_24"/>
+
+        <EditText
+            android:layout_marginTop="12dp"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/searchView"
+            android:inputType="text"
+            android:background="@drawable/search_background"
+            android:hint="Search By City..."
+            android:drawableLeft="@drawable/baseline_search_24"
+            android:paddingStart="10dp"
+            />
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_below="@+id/searchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"/>
+
+</RelativeLayout>

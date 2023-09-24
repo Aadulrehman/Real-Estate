@@ -29,6 +29,8 @@ class AddPropertyActivity : AppCompatActivity() {
 
         viewBinder = ActivityAddPropertyBinding.inflate(layoutInflater)
         setContentView(viewBinder.root)
+        purpose=resources.getString(R.string.SaleTag)
+        interior=resources.getString(R.string.NonFurnishTag)
 
         selectArea(viewBinder.spn)
         viewBinder.rbNonFurnished.isChecked = true

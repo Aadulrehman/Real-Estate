@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class PropertyEditAdapter(private val propertyList: MutableList<PropertyDetailsData>):RecyclerView.Adapter<PropertyEditAdapter.ViewHolderClass>(){
 
-
     private var editBtnListener: PropertyEditAdapter.EditButtonClickListener? = null
     private var deleteBtnListener: PropertyEditAdapter.DeleteButtonClickListener? = null
     interface EditButtonClickListener {
@@ -21,7 +20,6 @@ class PropertyEditAdapter(private val propertyList: MutableList<PropertyDetailsD
     }
 
     fun setOnEditClickListener(listener: PropertyEditAdapter.EditButtonClickListener) {
-
         editBtnListener= listener
     }
     fun setOnDeleteClickListener(listener: PropertyEditAdapter.DeleteButtonClickListener) {
@@ -56,7 +54,6 @@ class PropertyEditAdapter(private val propertyList: MutableList<PropertyDetailsD
             propertyList.removeAt(position)
             notifyItemRemoved(position)
         }
-
     }
 
     class ViewHolderClass (itemView: View):RecyclerView.ViewHolder(itemView){
@@ -72,6 +69,5 @@ class PropertyEditAdapter(private val propertyList: MutableList<PropertyDetailsD
         val rvEditBtn: Button = itemView.findViewById(R.id.mybtnEdit)
         val rvDeleteBtn: Button = itemView.findViewById(R.id.mybtnDelete)
     }
-
 
 }

@@ -33,6 +33,9 @@ class HomePage : AppCompatActivity() {
         viewBinder.EditDeleteLayout.setOnClickListener{
             startActivity(Intent(this@HomePage,EditPropertyActivity::class.java))
         }
+        viewBinder.SearchLayout.setOnClickListener{
+            startActivity(Intent(this@HomePage,SearchPropertyActivity::class.java))
+        }
     }
     private fun logOut(){
         val spManager = SharedPreferenceManager(this)

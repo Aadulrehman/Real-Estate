@@ -36,4 +36,14 @@ interface PropertyDao {
 
     @Query("UPDATE property SET purpose = :newPurpose WHERE idProperty = :idProperty")
     suspend fun updatePurpose(idProperty: Long, newPurpose: String)
+
+    @Query("SELECT * FROM property WHERE " +
+            "(:area IS NULL OR area = :area) AND " +
+            "(:floor IS NULL OR floor = :floor) AND " +
+            "(:room IS NULL OR room = :room) AND " +
+            "(:interior IS NULL OR interior = :interior) AND " +
+            "(:kitchen IS NULL OR kitchen = :kitchen) AND " +
+            "(:purpose IS NULL OR purpose = :purpose) AND " +
+            "(:bath IS NULL OR bath = :bath)")
+    suspend fun filteredProperties(area: String?, floor: String?, room: String?, bath: String?, kitchen: String?, interior: String?, purpose:String?): List<Property>
 }

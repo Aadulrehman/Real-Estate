@@ -22,4 +22,9 @@ interface PropertyAddressDao {
     @Query("UPDATE propertyAddress SET address = :newAddress WHERE idProperty = :idProperty")
     suspend fun updateAddress(idProperty: Long, newAddress: String)
 
+    @Query("SELECT * FROM propertyAddress WHERE " +
+            "(:city IS NULL OR city = :city) AND " +
+            "(:address IS NULL OR address = :address)")
+    suspend fun filteredAddress(city: String?, address: String?): List<PropertyAddress>
+
 }
