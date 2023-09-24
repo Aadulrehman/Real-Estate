@@ -53,6 +53,7 @@ class AddPropertyActivity : AppCompatActivity() {
             Validation.checkBlank(this,viewBinder.etFloor.text.toString().trim(),"Floor Field is Empty")) {
             insertProperty()
             Toast.makeText(this@AddPropertyActivity,"Property Added Successfully!",Toast.LENGTH_SHORT).show()
+            clearEditTexts()
         }
     }
 
@@ -124,5 +125,13 @@ class AddPropertyActivity : AppCompatActivity() {
                 id)
             db.propertyAddressDao().insert(address)
         }
+    }
+    private fun clearEditTexts(){
+        viewBinder.etFloor.text.clear()
+        viewBinder.etBaths.text.clear()
+        viewBinder.etKitchen.text.clear()
+        viewBinder.etRooms.text.clear()
+        viewBinder.etAddress.text.clear()
+        viewBinder.etCity.text.clear()
     }
 }
