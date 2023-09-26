@@ -46,15 +46,15 @@ class FilteredPropertyActivity : AppCompatActivity() {
     }
     private fun dataFromIntent(){
         val receivedBundle = intent.extras
-        address= receivedBundle?.getString("address")
-        room= receivedBundle?.getString("room")
-        floor= receivedBundle?.getString("floor")
-        kitchen= receivedBundle?.getString("kitchen")
-        bath= receivedBundle?.getString("bath")
-        purpose= receivedBundle?.getString("purpose").toString()
-        city= receivedBundle?.getString("city")
-        interior= receivedBundle?.getString("interior")
-        area = receivedBundle?.getString("area")
+        address= receivedBundle?.getString(resources.getString(R.string.addressTag))
+        room= receivedBundle?.getString(resources.getString(R.string.roomTag))
+        floor= receivedBundle?.getString(resources.getString(R.string.floorTag))
+        kitchen= receivedBundle?.getString(resources.getString(R.string.kitchenTag))
+        bath= receivedBundle?.getString(resources.getString(R.string.bathTag))
+        purpose= receivedBundle?.getString(resources.getString(R.string.purposeTag)).toString()
+        city= receivedBundle?.getString(resources.getString(R.string.cityTag))
+        interior= receivedBundle?.getString(resources.getString(R.string.interiorTag))
+        area = receivedBundle?.getString(resources.getString(R.string.areaTag))
     }
     private fun getData()
     {

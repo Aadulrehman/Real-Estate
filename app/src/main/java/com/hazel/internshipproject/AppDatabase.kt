@@ -12,10 +12,8 @@ abstract class AppDatabase: RoomDatabase() {
     abstract fun propertyAddressDao():PropertyAddressDao
 
     companion object {
-        @Volatile
         private var instance: AppDatabase? = null
 
-        @Synchronized
         fun getInstance(context: Context): AppDatabase {
             if (instance == null)
                 instance = Room.databaseBuilder(

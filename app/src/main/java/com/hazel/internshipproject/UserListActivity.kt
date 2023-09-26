@@ -27,6 +27,7 @@ class UserListActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
 
         dataList= arrayListOf<UserData>()
+
         getData()
 
         val adapter = AdapterClass(dataList)
@@ -44,7 +45,7 @@ class UserListActivity : AppCompatActivity() {
     private fun getData()
     {
         db=AppDatabase.getInstance(this)
-        GlobalScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val myuserList: List<User> = db.userDao().getAll()
             CoroutineScope(Dispatchers.Main).launch {
                 for(i in myuserList){
@@ -57,7 +58,7 @@ class UserListActivity : AppCompatActivity() {
     }
     private fun getNumberFromDB(currEmail:String){
         db=AppDatabase.getInstance(this)
-        GlobalScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val phone= db.userDao().findPhoneThroughEmail(currEmail)
             CoroutineScope(Dispatchers.Main).launch {
                 dialPhone(phone.toString())

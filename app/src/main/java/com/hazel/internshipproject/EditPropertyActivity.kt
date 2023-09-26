@@ -41,23 +41,12 @@ class EditPropertyActivity : AppCompatActivity() {
         adapter.setOnEditClickListener(object : PropertyEditAdapter.EditButtonClickListener
         {
             override fun onEditButtonClick(item: PropertyDetailsData) {
-                val bundle = Bundle()
-                bundle.putLong("id", item.id)
-                bundle.putString("city", item.city)
-                bundle.putString("address", item.address)
-                bundle.putString("area", item.area)
-                bundle.putString("room", item.rooms)
-                bundle.putString("floor", item.floor)
-                bundle.putString("kitchen", item.kitchen)
-                bundle.putString("bath", item.bath)
-                bundle.putString("interior", item.interior)
-                bundle.putString("purpose", item.purpose)
                 val intent = Intent(this@EditPropertyActivity, EditPropertyDetailsActivity::class.java)
-                intent.putExtras(bundle)
+                intent.putExtra("EditObjectData", item)
+
                 startActivity(intent)
                 finish()
             }
-
         })
         adapter.setOnDeleteClickListener(object: PropertyEditAdapter.DeleteButtonClickListener
         {
@@ -65,7 +54,6 @@ class EditPropertyActivity : AppCompatActivity() {
                 deletePropertyData(item.id)
             }
         })
-
     }
     private fun getData()
     {

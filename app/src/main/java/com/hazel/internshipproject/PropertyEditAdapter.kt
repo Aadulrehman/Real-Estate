@@ -47,6 +47,7 @@ class PropertyEditAdapter(private val propertyList: MutableList<PropertyDetailsD
         holder.rvPurpose.text=currentItem.purpose
 
         holder.rvEditBtn.setOnClickListener{
+
             editBtnListener?.onEditButtonClick(currentItem)
         }
         holder.rvDeleteBtn.setOnClickListener{

@@ -45,12 +45,12 @@ class AddPropertyActivity : AppCompatActivity() {
         }
     }
     private fun validateProperty(){
-        if(Validation.checkBlank(this,viewBinder.etCity.text.toString(),"City is Empty") &&
-            Validation.checkBlank(this,viewBinder.etAddress.text.toString().trim(),"Address is Empty") &&
-            Validation.checkBlank(this,viewBinder.etRooms.text.toString().trim(),"Room Field is Empty") &&
-            Validation.checkBlank(this,viewBinder.etBaths.text.toString().trim(),"Bath Field is Empty") &&
-            Validation.checkBlank(this,viewBinder.etKitchen.text.toString().trim(),"Kitchen Field is Empty") &&
-            Validation.checkBlank(this,viewBinder.etFloor.text.toString().trim(),"Floor Field is Empty")) {
+        if(Validation.checkBlank(this,viewBinder.etCity.text.toString(),resources.getString(R.string.emptyCity)) &&
+            Validation.checkBlank(this,viewBinder.etAddress.text.toString().trim(),resources.getString(R.string.emptyAddress)) &&
+            Validation.checkBlank(this,viewBinder.etRooms.text.toString().trim(),resources.getString(R.string.emptyRoom)) &&
+            Validation.checkBlank(this,viewBinder.etBaths.text.toString().trim(),resources.getString(R.string.emptyBath)) &&
+            Validation.checkBlank(this,viewBinder.etKitchen.text.toString().trim(),resources.getString(R.string.emptyKitchen)) &&
+            Validation.checkBlank(this,viewBinder.etFloor.text.toString().trim(),resources.getString(R.string.emptyFloor))) {
             insertProperty()
             Toast.makeText(this@AddPropertyActivity,"Property Added Successfully!",Toast.LENGTH_SHORT).show()
             clearEditTexts()
@@ -64,12 +64,7 @@ class AddPropertyActivity : AppCompatActivity() {
 
         spn.adapter = adapter
         spn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ){
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long){
                 area = areaItems[position]
             }
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -106,23 +101,11 @@ class AddPropertyActivity : AppCompatActivity() {
     }
     private fun insertProperty(){
         db=AppDatabase.getInstance(this)
-        GlobalScope.launch {
-            val property = Property(
-                0,
-                area,
-                viewBinder.etFloor.text.toString().trim(),
-                viewBinder.etRooms.text.toString().trim(),
-                viewBinder.etBaths.text.toString().trim(),
-                viewBinder.etKitchen.text.toString().trim(),
-                interior,
-                purpose,
-                email)
+        CoroutineScope(Dispatchers.IO).launch {
+            val property = Property(0, area, viewBinder.etFloor.text.toString().trim(), viewBinder.etRooms.text.toString().trim(),
+                viewBinder.etBaths.text.toString().trim(), viewBinder.etKitchen.text.toString().trim(), interior, purpose, email)
             val id=db.propertyDao().insert(property)
-            val address = PropertyAddress(
-                0,
-                viewBinder.etAddress.text.toString(),
-                viewBinder.etCity.text.toString(),
-                id)
+            val address = PropertyAddress(0, viewBinder.etAddress.text.toString(), viewBinder.etCity.text.toString(), id)
             db.propertyAddressDao().insert(address)
         }
     }

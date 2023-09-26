@@ -45,6 +45,29 @@
     <string name="NonFurnishTag">Non Furnished</string>
     <string name="SaleTag">Sale</string>
     <string name="RentTag">Rent</string>
+    <string name="emptyCity">City is Empty</string>
+    <string name="emptyAddress">Address is Empty</string>
+    <string name="emptyRoom">Room Field is Empty</string>
+    <string name="emptyBath">Bath Field is Empty</string>
+    <string name="emptyKitchen">Kitchen Field is Empty</string>
+    <string name="emptyFloor">Floor Field is Empty</string>
+    <string name="idTag">id</string>
+    <string name="cityTag">city</string>
+    <string name="addressTag">address</string>
+    <string name="areaTag">area</string>
+    <string name="roomTag">room</string>
+    <string name="floorTag">floor</string>
+    <string name="kitchenTag">kitchen</string>
+    <string name="bathTag">bath</string>
+    <string name="interiorTag">interior</string>
+    <string name="purposeTag">purpose</string>
+    <string name="errorEmail">Email not exists</string>
+    <string name="errorPassword">Password not correct</string>
+    <string name="existsEmail">Email already exists</string>
+    <string name="existsPhone">Phone no already exists</string>
+
+
+
     <string-array name="areaSpinner">
         <item>3 Marla</item>
         <item>5 Marla</item>

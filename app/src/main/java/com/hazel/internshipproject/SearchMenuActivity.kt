@@ -14,12 +14,6 @@ class SearchMenuActivity : AppCompatActivity() {
     private var purpose:String="Rent"
     private var interior:String? = null
     private var area: String? = null
-    private var room: String? = null
-    private var floor:String? = null
-    private var bath:String? = null
-    private var kitchen: String? = null
-    private var city:String? = null
-    private var address:String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -39,44 +33,44 @@ class SearchMenuActivity : AppCompatActivity() {
         viewBinder.btnSearch.setOnClickListener{
             val bundle = Bundle()
             if(viewBinder.etFloor.text.toString().isEmpty()){
-                bundle.putString("floor", null)
+                bundle.putString(resources.getString(R.string.floorTag), null)
             }
             else{
-                bundle.putString("floor", viewBinder.etFloor.text.toString().trim())
+                bundle.putString(resources.getString(R.string.floorTag), viewBinder.etFloor.text.toString().trim())
             }
             if(viewBinder.etCity.text.toString().isEmpty()){
-                bundle.putString("city", null)
+                bundle.putString(resources.getString(R.string.cityTag), null)
             }
             else{
-                bundle.putString("city", viewBinder.etCity.text.toString().trim())
+                bundle.putString(resources.getString(R.string.cityTag), viewBinder.etCity.text.toString().trim())
             }
             if(viewBinder.etAddress.text.toString().isEmpty()){
-                bundle.putString("address", null)
+                bundle.putString(resources.getString(R.string.addressTag), null)
             }
             else{
-                bundle.putString("address", viewBinder.etAddress.text.toString().trim())
+                bundle.putString(resources.getString(R.string.addressTag), viewBinder.etAddress.text.toString().trim())
             }
             if(viewBinder.etRooms.text.toString().isEmpty()){
-                bundle.putString("room", null)
+                bundle.putString(resources.getString(R.string.roomTag), null)
             }
             else{
-                bundle.putString("room", viewBinder.etRooms.text.toString().trim())
+                bundle.putString(resources.getString(R.string.roomTag), viewBinder.etRooms.text.toString().trim())
             }
             if(viewBinder.etKitchen.text.toString().isEmpty()){
-                bundle.putString("kitchen",null)
+                bundle.putString(resources.getString(R.string.kitchenTag),null)
             }
             else{
-                bundle.putString("kitchen", viewBinder.etKitchen.text.toString().trim())
+                bundle.putString(resources.getString(R.string.kitchenTag), viewBinder.etKitchen.text.toString().trim())
             }
             if(viewBinder.etBath.text.toString().isEmpty()){
-                bundle.putString("bath", null)
+                bundle.putString(resources.getString(R.string.bathTag), null)
             }
             else{
-                bundle.putString("bath", viewBinder.etBath.text.toString().trim())
+                bundle.putString(resources.getString(R.string.bathTag), viewBinder.etBath.text.toString().trim())
             }
-            bundle.putString("area",area)
-            bundle.putString("interior", interior)
-            bundle.putString("purpose", purpose)
+            bundle.putString(resources.getString(R.string.areaTag),area)
+            bundle.putString(resources.getString(R.string.interiorTag), interior)
+            bundle.putString(resources.getString(R.string.purposeTag), purpose)
             val intent = Intent(this@SearchMenuActivity, FilteredPropertyActivity::class.java)
             intent.putExtras(bundle)
             startActivity(intent)

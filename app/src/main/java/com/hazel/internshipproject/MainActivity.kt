@@ -57,12 +57,12 @@ class MainActivity : AppCompatActivity(){
             val existsPhone = db.userDao().findByPhone(viewBinder.etPhone.text.toString().trim())
             CoroutineScope(Dispatchers.Main).launch {
                 if(existsEmail!=null){
-                    viewBinder.etEmail.error = "Email already exists"
+                    viewBinder.etEmail.error = resources.getString(R.string.existsEmail)
                     viewBinder.etPhone.error=null
                 }
                 else if(existsPhone!=null){
                     viewBinder.etEmail.error=null
-                    viewBinder.etPhone.error = "Phone no already exists"
+                    viewBinder.etPhone.error = resources.getString(R.string.existsPhone)
                 }
                 else{//user is new
                     viewBinder.etEmail.error=null

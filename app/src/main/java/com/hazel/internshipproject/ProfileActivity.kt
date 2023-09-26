@@ -83,7 +83,7 @@ class ProfileActivity : AppCompatActivity() {
     }
     private fun fetchDataFromRD(){
         db=AppDatabase.getInstance(this)
-        GlobalScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val name= db.userDao().findNameThroughEmail(email)
             val phone= db.userDao().findPhoneThroughEmail(email)
             CoroutineScope(Dispatchers.Main).launch {

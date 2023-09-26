@@ -59,13 +59,13 @@ class EditPropertyDetailsActivity : AppCompatActivity() {
         viewBinder.etBaths.setText(bath)
         viewBinder.etKitchen.setText(kitchen)
         viewBinder.etRooms.setText(room)
-        if(interior=="Furnished"){
+        if(interior==resources.getString(R.string.FurnishTag)){
             viewBinder.rbFurnished.isChecked = true
         }
         else{
             viewBinder.rbNonFurnished.isChecked = true
         }
-        if(purpose=="Sale"){
+        if(purpose==resources.getString(R.string.SaleTag)){
             viewBinder.rbForSale.isChecked = true
         }
         else{
@@ -97,19 +97,18 @@ class EditPropertyDetailsActivity : AppCompatActivity() {
         }
     }
     private fun dataFromIntent(){
-        val receivedBundle = intent.extras
-        if (receivedBundle != null) {
-            id = receivedBundle.getLong("id")
-            area = receivedBundle.getString("area").toString()
-            address= receivedBundle.getString("address").toString()
-            room= receivedBundle.getString("room").toString()
-            floor= receivedBundle.getString("floor").toString()
-            kitchen= receivedBundle.getString("kitchen").toString()
-            bath= receivedBundle.getString("bath").toString()
-            purpose= receivedBundle.getString("purpose").toString()
-            interior= receivedBundle.getString("interior").toString()
-            city= receivedBundle.getString("city").toString()
-        }
+        val data = intent.getSerializableExtra("EditObjectData") as PropertyDetailsData
+
+            id=data.id
+            area = data.area
+            address= data.address
+            room= data.rooms
+            floor=data.floor
+            kitchen= data.kitchen
+            bath= data.bath
+            purpose= data.purpose
+            interior= data.interior
+            city= data.city
         newPurpose=purpose
         newInterior=interior
         newarea=area
@@ -121,12 +120,7 @@ class EditPropertyDetailsActivity : AppCompatActivity() {
 
         spn.adapter = adapter
         spn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ){
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long){
                 newarea = areaItems[position]
             }
             override fun onNothingSelected(parent: AdapterView<*>) {

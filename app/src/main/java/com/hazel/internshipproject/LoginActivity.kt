@@ -22,6 +22,8 @@ class LoginActivity : AppCompatActivity() {
         viewBinder= ActivityLoginBinding.inflate(layoutInflater)
         setContentView(viewBinder.root)
 
+
+
         viewBinder.tvSignup.setOnClickListener{
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             finish()
@@ -57,12 +59,12 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun findUserFromDB(){
         db=AppDatabase.getInstance(this)
-        GlobalScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val loginAccess= db.userDao().findFromEmailToValidate(viewBinder.etEmail.text.toString().trim())
             CoroutineScope(Dispatchers.Main).launch {
                 if(loginAccess==null){
                     viewBinder.etPass.error=null
-                    viewBinder.etEmail.error = "Email doesn't exists"
+                    viewBinder.etEmail.error = resources.getString(R.string.errorEmail)
                 }
                 else if(loginAccess==viewBinder.etPass.text.toString().trim()){
                     viewBinder.etEmail.error=null
@@ -72,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
                 }
                 else{
                     viewBinder.etEmail.error=null
-                    viewBinder.etPass.error = "Password not correct"
+                    viewBinder.etPass.error = resources.getString(R.string.errorPassword)
                 }
             }
         }
