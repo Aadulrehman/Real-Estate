@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.hazel.internshipproject.databinding.UserlayoutBinding
 
 class AdapterClass(private val dataList: ArrayList<UserData>):RecyclerView.Adapter<AdapterClass.ViewHolderClass>() {
 
@@ -17,8 +18,9 @@ class AdapterClass(private val dataList: ArrayList<UserData>):RecyclerView.Adapt
         this.listener = listener
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderClass {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.userlayout, parent, false)
-        return ViewHolderClass(itemView)
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = UserlayoutBinding.inflate(inflater,parent,false)
+        return ViewHolderClass(binding)
     }
 
     override fun getItemCount(): Int {
@@ -27,15 +29,17 @@ class AdapterClass(private val dataList: ArrayList<UserData>):RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: ViewHolderClass, position: Int) {
         val currentItem=dataList[position]
-        holder.rvName.text=currentItem.name
-        holder.rvEmail.text=currentItem.email
+        holder.bind(currentItem)
 
         holder.itemView.setOnClickListener {
             listener?.onItemClick(currentItem)
         }
     }
-    class ViewHolderClass(itemView: View):RecyclerView.ViewHolder(itemView) {
-        val rvName:TextView=itemView.findViewById(R.id.name)
-        val rvEmail:TextView=itemView.findViewById(R.id.email)
+    inner class ViewHolderClass(private val binding: UserlayoutBinding):RecyclerView.ViewHolder(binding.root) {
+       fun bind(item: UserData){
+           binding.name.text=item.name
+           binding.email.text=item.email
+           binding.executePendingBindings()
+       }
     }
 }

@@ -1,173 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginHorizontal="10dp"
-    android:layout_marginVertical="10dp"
-    app:cardCornerRadius="20dp"
-    app:cardElevation="3dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/card">
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="3dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:id="@+id/card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/area"
+                    android:text="Area"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="15dp" />
+
+                <Button
+                    android:id="@+id/mybtnEdit"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:clickable="false"
+                    android:layout_marginStart="195dp"
+                    android:background="@drawable/baseline_edit_24" />
+
+                <Button
+                    android:id="@+id/mybtnDelete"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:clickable="false"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/baseline_delete_24" />
+            </LinearLayout>
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/area"
-                android:text="Area"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="15dp" />
-
-            <Button
-                android:id="@+id/mybtnEdit"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:clickable="false"
-                android:layout_marginStart="195dp"
-                android:background="@drawable/baseline_edit_24" />
-            <Button
-                android:id="@+id/mybtnDelete"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:clickable="false"
-                android:layout_marginStart="6dp"
-                android:background="@drawable/baseline_delete_24" />
-        </LinearLayout>
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/purpose"
-            android:text="Purpose"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:layout_marginStart="15dp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/interior"
-            android:text="Interior"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:layout_marginStart="15dp"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/address"
-                android:text="Address"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="15dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/city"
-                android:layout_marginLeft="20dp"
-                android:text="City"
+                android:id="@+id/purpose"
+                android:text="Purpose"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_marginStart="15dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/interior"
+                android:text="Interior"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="15dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/address"
+                    android:text="Address"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/city"
+                    android:layout_marginLeft="20dp"
+                    android:text="City"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="15dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/baseline_bedroom_child_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rooms"
+                    android:text="Rooms"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="2dp" />
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="18dp"
+                    android:background="@drawable/baseline_kitchen_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/kitchen"
+                    android:text="Kitchen"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="2dp" />
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="18dp"
+                    android:background="@drawable/baseline_bathroom_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bath"
+                    android:text="Bath"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="2dp" />
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="18dp"
+                    android:background="@drawable/baseline_stairs_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/floor"
+                    android:text="Floor"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="2dp" />
+
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="27dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="15dp"
-                android:background="@drawable/baseline_bedroom_child_24"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rooms"
-                android:text="Rooms"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="2dp" />
-
-            <ImageView
-                android:layout_width="27dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="18dp"
-                android:background="@drawable/baseline_kitchen_24"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/kitchen"
-                android:text="Kitchen"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="2dp" />
-            <ImageView
-                android:layout_width="27dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="18dp"
-                android:background="@drawable/baseline_bathroom_24"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/bath"
-                android:text="Bath"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="2dp"
-                />
-
-            <ImageView
-                android:layout_width="27dp"
-                android:layout_height="27dp"
-                android:layout_marginStart="18dp"
-                android:background="@drawable/baseline_stairs_24"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/floor"
-                android:text="Floor"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="2dp"
-                />
-
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</layout>
